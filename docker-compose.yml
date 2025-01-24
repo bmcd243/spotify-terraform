@@ -1,10 +1,9 @@
-version: '3.8'
-
 services:
   spotify-auth-proxy:
     image: ghcr.io/conradludgate/spotify-auth-proxy
     env_file: .env
     ports:
+      # host port : container port
       - "27228:27228"
     restart: always
 

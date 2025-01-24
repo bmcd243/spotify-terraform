@@ -16,16 +16,21 @@ The plan is to create a Docker image that includes Terraform and any necessary d
 
 I will use SNS to notify me via email if the pipeline fails.
 
-## Instructions
+## Deployment Instructions
 
 To build the container, run `docker-compose up -d` which invokes `docker-compose.yml`. Docker Compose has been used because there is a dependency on `spotify-auth-proxy` which must be authenticated first.
 
 ## Learnings
 
-### gitignore
+### Docker
+- Use Alpine base image where possible to reduce container size. Though, may cause compatability issues
+
+### git
+
+#### gitignore
 Use a `.gitignore` file for anything you don't want in your repo. In this case, we are ignoring the .terraform directory as this contains the Docker container files.
 
-### Branch conflicts
+#### Branch conflicts
 
 1. `git pull origin main --no-rebase`: merge local changes with remote changes
 
@@ -33,6 +38,14 @@ Use a `.gitignore` file for anything you don't want in your repo. In this case, 
 
 3. `git pull origin main --ff-only`: fast-forward (your branch must be up to date with the remote branch and you only want to pull if there are no conflicts)
 
+### Networking
+We need an Internet Gateway to connects a VPC to the internet.
+NAT Gateway means we can give our container internet access without assigning it a public IP.
+To use the Gateways, a Route Table is used.
+
+VPC is defined in `vpc.tf`.
+
+Following general basic practice, I am going to 2 public and 2 private subnets split across 2 Availability Zones to ensure uptime in eu-west-2 region (closest to user base location).
 
 ## Resources used
 [Create a Spotify playlist with Terraform](https://developer.hashicorp.com/terraform/tutorials/community-providers/spotify-playlist)
@@ -40,3 +53,10 @@ Use a `.gitignore` file for anything you don't want in your repo. In this case, 
 [How to Run a Cron Job Inside a Docker Container](https://www.youtube.com/watch?v=hBZmAB5GxVg)
 
 [Docker Compose](https://docs.docker.com/compose/) to run multiple containers with dependencies.
+
+[Networking Fundamentals to Deploy Containers in AWS](https://www.youtube.com/watch?v=UQtNuzF1_Dc)
+
+[How to Deploy an AWS ECS Cluster with Terraform [Tutorial]](https://spacelift.io/blog/terraform-ecs)
+
+## Improvements / future learnings
+- Implement Docker Layers to further reduce container size
