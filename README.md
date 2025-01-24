@@ -22,7 +22,7 @@ To build the container, run `docker-compose up -d` which invokes `docker-compose
 
 ## Learnings
 
-### Docker
+### Containers
 - Use Alpine base image where possible to reduce container size. Though, may cause compatability issues
 
 ### git
