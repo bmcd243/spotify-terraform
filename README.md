@@ -38,3 +38,5 @@ Use a `.gitignore` file for anything you don't want in your repo. In this case, 
 [Create a Spotify playlist with Terraform](https://developer.hashicorp.com/terraform/tutorials/community-providers/spotify-playlist)
 
 [How to Run a Cron Job Inside a Docker Container](https://www.youtube.com/watch?v=hBZmAB5GxVg)
+
+[Docker Compose](https://docs.docker.com/compose/) to run multiple containers with dependencies.
