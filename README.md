@@ -22,7 +22,17 @@ To build the container, run `docker-compose up -d` which invokes `docker-compose
 
 ## Learnings
 
-Use a `.gitignore` file for anything you don't want in your repo. In this case, the 
+### gitignore
+Use a `.gitignore` file for anything you don't want in your repo. In this case, we are ignoring the .terraform directory as this contains the Docker container files.
+
+### Branch conflicts
+
+1. `git pull origin main --no-rebase`: merge local changes with remote changes
+
+2. `git pull origin main --rebase`: apply local changes on top of the remote branch
+
+3. `git pull origin main --ff-only`: fast-forward (your branch must be up to date with the remote branch and you only want to pull if there are no conflicts)
+
 
 ## Resources used
 [Create a Spotify playlist with Terraform](https://developer.hashicorp.com/terraform/tutorials/community-providers/spotify-playlist)
