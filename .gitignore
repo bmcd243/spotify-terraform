@@ -15,3 +15,4 @@
 .terraformrc
 terraform.rc.terraform/
 .idea/
+.terraform/
