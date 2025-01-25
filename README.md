@@ -47,6 +47,8 @@ VPC is defined in `vpc.tf`.
 
 Following general basic practice, I am going to 2 public and 2 private subnets split across 2 Availability Zones to ensure uptime in eu-west-2 region (closest to user base location).
 
+### Ansible
+
 ## Resources used
 [Create a Spotify playlist with Terraform](https://developer.hashicorp.com/terraform/tutorials/community-providers/spotify-playlist)
 
