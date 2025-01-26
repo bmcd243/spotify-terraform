@@ -11,8 +11,6 @@ WORKDIR /app
 # Copy Terraform files to the image
 COPY .env /app/.env
 
-RUN export $(cat /app/.env | xargs)
-
 # Run Terraform initialization
 RUN terraform init
 
