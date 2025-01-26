@@ -70,6 +70,8 @@ A CIDR block is a collection of IP addresses that share the same network prefix 
 
 [DevOps Project - AWS, Terraform, Ansible (Dynamic inventory!), Jenkins, GitHub, & RabbitMQ](https://www.youtube.com/watch?v=SmgS-kyhadI)
 
+[AWS Hands-On: Automate AWS Infra Deployment using Terraform and GitHub Actions](https://www.youtube.com/watch?v=scecLqTeP3k)
+
 ## Improvements / future learnings
 - Implement Docker Layers to further reduce container size
-- Add CI / CD so that the terraform validation stages run automatically before the `apply` stage is run manually
+- Play around with Ansible playbooks which have more options than GitHub Actions as open-source
