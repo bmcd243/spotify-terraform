@@ -36,6 +36,26 @@ Use a `.gitignore` file for anything you don't want in your repo. In this case, 
 
 `-u` or `--set-upstream` is used when a new branch has just been created locally because it doesn't yet exist on the remote repo. git versions newer than 2.3.7 shouldn't require this command.
 
+`Error: An error occurred trying to start process '/usr/bin/bash' with working directory '/home/runner/work/spotify-terraform/spotify-terraform/src'. No such file or directory`
+
+Fix: explicitly set the shell to bash
+
+```
+      - name: Terraform Init
+        id: init
+        shell: bash
+        run: terraform init
+
+      - name: Terraform Plan
+        id: plan
+        shell: bash
+        run: terraform plan -no-color
+
+      - name: Terraform Apply
+        shell: bash
+        run: terraform apply -auto-approve
+```
+
 #### Branch conflicts
 
 1. `git pull origin main --no-rebase`: merge local changes with remote changes
