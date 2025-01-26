@@ -16,7 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Ensures a full checkout
+          fetch-depth: 0
+
+      - name: Start Spotify Auth Proxy
+        run: |
+          docker run -d --name spotify-auth-proxy -p 27228:27228 ghcr.io/conradludgate/spotify-auth-proxy
+
+      - name: Wait for Spotify Auth Proxy
+        run: sleep 5
+
+      - name: Verify Running Containers
+        run: docker ps -a
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -24,9 +34,6 @@ jobs:
           terraform_version: 1.0.1
           terraform_wrapper: false
 
-      - name: Start Spotify Auth Proxy
-      run: docker run -d --name spotify-auth-proxy -p 27228:27228 ghcr.io/conradludgate/spotify-auth-proxy
-      
       - name: Terraform Init
         id: init
         run: terraform init
