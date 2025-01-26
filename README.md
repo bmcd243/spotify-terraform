@@ -24,6 +24,7 @@ To build the container, run `docker-compose up -d` which invokes `docker-compose
 
 ### Containers
 - Use Alpine base image where possible to reduce container size. Though, may cause compatability issues
+- Use ECR push commands to push Docker Container to ECR
 
 ### git
 
@@ -66,6 +67,8 @@ A CIDR block is a collection of IP addresses that share the same network prefix 
 [Networking Fundamentals to Deploy Containers in AWS](https://www.youtube.com/watch?v=UQtNuzF1_Dc)
 
 [How to Deploy an AWS ECS Cluster with Terraform [Tutorial]](https://spacelift.io/blog/terraform-ecs)
+
+[DevOps Project - AWS, Terraform, Ansible (Dynamic inventory!), Jenkins, GitHub, & RabbitMQ](https://www.youtube.com/watch?v=SmgS-kyhadI)
 
 ## Improvements / future learnings
 - Implement Docker Layers to further reduce container size
