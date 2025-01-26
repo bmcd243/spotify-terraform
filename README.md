@@ -4,9 +4,9 @@ I enjoy following the latest popular tracks for an artist which Spotify supports
 
 I am using this project as an opportunity to further explore the world of Cloud Engineering and DevOps. Thus, the aims of this project are to:
 - Deploy all components using IaC (Terraform) as opposed to using a visual console
-- Package everything as a Docker image so it can be run anywhere. Saving Kubernetes for a future project with more containers.
-- Do as much as possible via CLI but use Docker Desktop for learning purposes.
-- Ansible for automation (CI/CD)
+- Package everything as a Docker image so it can be run anywhere. Saving Kubernetes for a future project with more containers
+- Do as much as possible via CLI but use Docker Desktop for learning purposes
+- Ansible for automation
 - Use EFS
 - VPCs and Subnets
 - Use AWS Secrets Manager to store sensitive information (e.g. IDs and keys)
@@ -30,6 +30,11 @@ To build the container, run `docker-compose up -d` which invokes `docker-compose
 #### gitignore
 Use a `.gitignore` file for anything you don't want in your repo. In this case, we are ignoring the .terraform directory as this contains the Docker container files.
 
+#### set-upstream
+`git push -u origin main` means push to the main branch on the remote repo (the one stored on git). `origin` is the default name for the remote repo.
+
+`-u` or `--set-upstream` is used when a new branch has just been created locally because it doesn't yet exist on the remote repo. git versions newer than 2.3.7 shouldn't require this command.
+
 #### Branch conflicts
 
 1. `git pull origin main --no-rebase`: merge local changes with remote changes
@@ -47,6 +52,8 @@ VPC is defined in `vpc.tf`.
 
 Following general basic practice, I am going to 2 public and 2 private subnets split across 2 Availability Zones to ensure uptime in eu-west-2 region (closest to user base location).
 
+A CIDR block is a collection of IP addresses that share the same network prefix and number of bits. `0.0.0.0/0` means all IPs. `WW.XX.YY.ZZ/32` means one IP.
+
 ### Ansible
 
 ## Resources used
@@ -62,3 +69,4 @@ Following general basic practice, I am going to 2 public and 2 private subnets s
 
 ## Improvements / future learnings
 - Implement Docker Layers to further reduce container size
+- Add CI / CD so that the terraform validation stages run automatically before the `apply` stage is run manually
